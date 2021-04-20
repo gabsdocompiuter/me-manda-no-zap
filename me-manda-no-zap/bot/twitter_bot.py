@@ -14,12 +14,6 @@ class TwitterBot:
         self.api = tweepy.API(auth)
         self.user = config('TWITTER_USER')
 
-    def read_tweets(self):
-        public_tweets = self.api.home_timeline()
-        for tweet in public_tweets:
-            print(tweet.text)
-            print()
-
     def read_mentions(self):
         lista_retorno = []
         tweets = self.api.mentions_timeline()
