@@ -27,6 +27,7 @@ class TwitterBot:
 
             if not tweet_loop:
                 tweet_dict = {
+                    "id": tweet.user.id_str,
                     "user": tweet.user.screen_name,
                     "tweet_replied": tweet_respondido,
                     "link_tweet": f'https://twitter.com/{tweet.user.screen_name}/status/{tweet.id_str}'
@@ -35,5 +36,12 @@ class TwitterBot:
                 lista_retorno.append(tweet_dict)
         
         return lista_retorno
+
+    def envia_dm(self, id_usuario, mensagem):
+        self.api.send_direct_message(id_usuario, mensagem)
+
+    def get_id_usuario(self, username):
+        usuario = self.api.get_user(username)
+        return usuario.id_str
 
     pass
