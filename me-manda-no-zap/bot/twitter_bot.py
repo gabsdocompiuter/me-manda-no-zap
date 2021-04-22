@@ -67,17 +67,17 @@ class TwitterBot:
                     "conteudo": conteudo_mensagem
                 }
 
-        #         if remetente_mensagem in mensagens:
-        #             msg = mensagens.get(remetente_mensagem)
-        #             msg.append(mensagem_dicionario)
-        #         else:
-        #             mensagens[remetente_mensagem] = []
-        #             mensagens[remetente_mensagem].append(mensagem_dicionario)
+                if remetente_mensagem in mensagens:
+                    msg = mensagens.get(remetente_mensagem)
+                    msg.append(mensagem_dicionario)
+                else:
+                    mensagens[remetente_mensagem] = []
+                    mensagens[remetente_mensagem].append(mensagem_dicionario)
+                pass
+            pass
+        pass
         
-        # for remetente, ms in mensagens.items():
-        #     print(remetente)
-        #     print(ms)
-        #     print()
+        return mensagens
 
     def seguir_usuario(self, id_usuario):
         amizade = self.tweepy.create_friendship(id_usuario)
