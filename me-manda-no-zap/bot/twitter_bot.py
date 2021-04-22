@@ -79,8 +79,9 @@ class TwitterBot:
         #     print(ms)
         #     print()
 
-    def seguir_usuario(id):
-
+    def seguir_usuario(self, id_usuario):
+        amizade = self.tweepy.create_friendship(id_usuario)
+        print(amizade)
 
 
     pass
